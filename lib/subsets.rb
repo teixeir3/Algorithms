@@ -11,6 +11,15 @@ def subsets(set)
   subsets + bigger_subsets
 end
 
+# Refactor:
+class Array
+  def subsets
+    return [[]] if empty?
+    subs = take(count - 1).subsets
+    subs.concat(subs.map { |sub| sub + [last] })
+  end
+end
+
 # Could there be a subsets of ["carl", "jim", "bobby"] (call it S)
 # where S - "bobby" is NOT a subset of ["carl", "jim"]?
 # NO

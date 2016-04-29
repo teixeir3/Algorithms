@@ -33,3 +33,6 @@ Complexity:
 expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
 Elements of input arrays can be modified.
+
+
+"each element of array A is an integer within the range [0..N−1]." This statement makes sense as it is, but another example would make it immediately more clear that all elements in the array must be less than the length of the array.

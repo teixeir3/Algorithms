@@ -34,7 +34,7 @@
 #   0 or many children per node
 
 module Algorithms
-  class TreeNode
+  class PolyTreeNode
     attr_accessor :value, :children, :parent
 
     def initialize(value = nil)
@@ -54,6 +54,12 @@ module Algorithms
 
     def to_s
       "<TreeNode @value=#{self.value}>"
+    end
+    
+    def parent=(node)
+      # node.add_child(self)
+      @parent = node
+      node.children << self
     end
 
     # DFS
@@ -186,48 +192,48 @@ module Algorithms
 end
 
 
-tree_node = Algorithms::TreeNode.new(1)
-tree_node.add_child(Algorithms::TreeNode.new(2))
-tree_node.add_child(Algorithms::TreeNode.new(3))
-tree_node.children.first.add_child(Algorithms::TreeNode.new(4))
-tree_node.children.last.add_child(Algorithms::TreeNode.new(5))
-tree_node.children.last.children.last.add_child(Algorithms::TreeNode.new(6))
-tree_node.children.last.children.last.add_child(Algorithms::TreeNode.new(7))
-
-puts
-
-p tree_node.dfs_recursive(7)
-p tree_node.bfs_recursive(7)
-p tree_node.dfs_iterative(7)
-p tree_node.bfs_iterative(7)
-
-puts
-
-p tree_node.dfs_recursive(5)
-p tree_node.bfs_recursive(5)
-p tree_node.dfs_iterative(5)
-p tree_node.bfs_iterative(5)
-
-puts
-
-p tree_node.dfs_recursive(3)
-p tree_node.bfs_recursive(3)
-p tree_node.dfs_iterative(3)
-p tree_node.bfs_iterative(3)
-
-puts
-
-p tree_node.dfs_recursive(9)
-p tree_node.bfs_recursive(9)
-p tree_node.dfs_iterative(9)
-p tree_node.bfs_iterative(9)
-
-puts
-
-p tree_node.count_iterative
-p tree_node.count_recursive
-
-puts
-
-p tree_node.dfs_recursive(7).path_iterative
-p tree_node.dfs_recursive(7).path_recursive
+# tree_node = Algorithms::TreeNode.new(1)
+# tree_node.add_child(Algorithms::TreeNode.new(2))
+# tree_node.add_child(Algorithms::TreeNode.new(3))
+# tree_node.children.first.add_child(Algorithms::TreeNode.new(4))
+# tree_node.children.last.add_child(Algorithms::TreeNode.new(5))
+# tree_node.children.last.children.last.add_child(Algorithms::TreeNode.new(6))
+# tree_node.children.last.children.last.add_child(Algorithms::TreeNode.new(7))
+#
+# puts
+#
+# p tree_node.dfs_recursive(7)
+# p tree_node.bfs_recursive(7)
+# p tree_node.dfs_iterative(7)
+# p tree_node.bfs_iterative(7)
+#
+# puts
+#
+# p tree_node.dfs_recursive(5)
+# p tree_node.bfs_recursive(5)
+# p tree_node.dfs_iterative(5)
+# p tree_node.bfs_iterative(5)
+#
+# puts
+#
+# p tree_node.dfs_recursive(3)
+# p tree_node.bfs_recursive(3)
+# p tree_node.dfs_iterative(3)
+# p tree_node.bfs_iterative(3)
+#
+# puts
+#
+# p tree_node.dfs_recursive(9)
+# p tree_node.bfs_recursive(9)
+# p tree_node.dfs_iterative(9)
+# p tree_node.bfs_iterative(9)
+#
+# puts
+#
+# p tree_node.count_iterative
+# p tree_node.count_recursive
+#
+# puts
+#
+# p tree_node.dfs_recursive(7).path_iterative
+# p tree_node.dfs_recursive(7).path_recursive
